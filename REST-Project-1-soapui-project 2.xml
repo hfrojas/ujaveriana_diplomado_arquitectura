@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="834d0d55-7b7a-4e1a-a5cd-03b27bd25683" activeEnvironment="Default" name="Contingency credit products" resourceRoot="" soapui-version="5.8.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="5a1a2559-f44d-47d8-b122-d7d3bc5c254a" wadlVersion="http://wadl.dev.java.net/2009/02" name="" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints/><con:resource name="Credit-products" path="/contingency/bank/credit-products" id="0290de73-a01b-4e52-8844-fab520e14f9d"><con:settings/><con:parameters/><con:method name="Credit-products 1" id="c064cb13-fc82-433e-bb55-3e82386824fc" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" id="b7a9959a-3d7e-43bf-90a4-a2f82119c698" mediaType="application/json"><con:settings/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:restMockService id="9027a122-2fc3-4e0b-8243-7969cfaf977c" port="9090" path="/" host="DESKTOP-BHC30EO" name="REST MockService contingency Credit Products" docroot=""><con:settings/><con:properties/><con:restMockAction name="/contingency/bank/credit-products" method="GET" resourcePath="/contingency/bank/credit-products" id="82e40726-ee3b-4e03-9028-7ddefe4ac43a"><con:settings/><con:defaultResponse>Response OK</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response OK" id="62c27c50-efe1-40ee-b1cf-2b79eee2d1eb" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
+  "status": "success",
+  "server": "contingencia",
+  "data": {
+    "creditProducts": [
+      {
+        "id": "101",
+        "name": "Personal Loan",
+        "type": "unsecured",
+        "description": "A loan for personal expenses with no collateral required.",
+        "interestRate": 12.5,
+        "maxLoanAmount": 50000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 1000,
+          "minCreditScore": 650
+        }
+      },
+      {
+        "id": "102",
+        "name": "Home Loan",
+        "type": "secured",
+        "description": "A loan to purchase a house with collateral required.",
+        "interestRate": 7.0,
+        "maxLoanAmount": 300000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 2000,
+          "minCreditScore": 700
+        }
+      },
+      {
+        "id": "103",
+        "name": "Car Loan",
+        "type": "secured",
+        "description": "A loan for purchasing a vehicle.",
+        "interestRate": 8.5,
+        "maxLoanAmount": 40000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 1500,
+          "minCreditScore": 680
+        }
+      }
+    ]
+  },
+  "message": "Credit products retrieved successfully"
+}
+</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
