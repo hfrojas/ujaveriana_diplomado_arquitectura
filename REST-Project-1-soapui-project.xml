@@ -51,4 +51,52 @@ if( requestBody.contains("some data") )&#13;
     return "Response N"&#13;
 }&#13;
 */&#13;
-</con:dispatchPath><con:response name="Response OK" id="eb983927-8f9a-4a45-bb12-31aef350c691" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</con:dispatchPath><con:response name="Response" id="eb983927-8f9a-4a45-bb12-31aef350c691" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
+  "status": "success",
+  "server": "principal",
+  "data": {
+    "creditProducts": [
+      {
+        "id": "101",
+        "name": "Personal Loan",
+        "type": "unsecured",
+        "description": "A loan for personal expenses with no collateral required.",
+        "interestRate": 12.5,
+        "maxLoanAmount": 50000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 1000,
+          "minCreditScore": 650
+        }
+      },
+      {
+        "id": "102",
+        "name": "Home Loan",
+        "type": "secured",
+        "description": "A loan to purchase a house with collateral required.",
+        "interestRate": 7.0,
+        "maxLoanAmount": 300000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 2000,
+          "minCreditScore": 700
+        }
+      },
+      {
+        "id": "103",
+        "name": "Car Loan",
+        "type": "secured",
+        "description": "A loan for purchasing a vehicle.",
+        "interestRate": 8.5,
+        "maxLoanAmount": 40000,
+        "currency": "USD",
+        "eligibility": {
+          "minIncome": 1500,
+          "minCreditScore": 680
+        }
+      }
+    ]
+  },
+  "message": "Credit products retrieved successfully"
+}
+</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
